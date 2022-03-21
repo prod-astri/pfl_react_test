@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import projectsData from "../projects-data.json"
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "../components/ProjectCard";
 
 export default function ProjectsList() {
     const [projects] = useState(projectsData);
