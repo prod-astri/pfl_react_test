@@ -14,9 +14,6 @@ function Header(props) {
                         <button>btn</button>
                         <button>btn</button>
                     </>}
-
-
-
             </div>
         </header>
     )
