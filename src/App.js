@@ -16,17 +16,13 @@ function App() {
 
   const handleResize = () => {
     setIsWide(window.innerWidth < 600 ? false : true)
-    console.log(window.innerWidth)
   }
   window.addEventListener("resize", handleResize)
 
   return (
     <div className={"App " + (theme)}>
       <Header >
-        <HeaderButtons isWide={isWide} />
-        <button className={theme} onClick={toggleTheme}>
-          {theme === 'dark' ? "set light theme" : "set dark theme" }
-        </button>
+        <HeaderButtons isWide={isWide} theme={theme} toggleTheme={toggleTheme}/> 
       </Header>
       <ProjectsList />
     </div>
