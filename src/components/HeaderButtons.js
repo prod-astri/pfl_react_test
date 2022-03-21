@@ -6,6 +6,10 @@ export default function HeaderButtons(props) {
     const { theme, toggleTheme } = props
     return (
         <div>
+            <button className={theme} onClick={toggleTheme}>
+                {theme === 'dark' ? "set light theme" : "set dark theme"}
+            </button>
+            
             {props.isWide ?
                 <div>
                     <button>btn</button>
@@ -15,9 +19,6 @@ export default function HeaderButtons(props) {
                 :
                 <img src={burger} alt='menu icon' style={{ width: '20px' }} />
             }
-            <button className={theme} onClick={toggleTheme}>
-                {theme === 'dark' ? "set light theme" : "set dark theme"}
-            </button>
         </div>)
 }
 
