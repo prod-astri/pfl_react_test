@@ -11,7 +11,8 @@ function App() {
     <div className="App">
       <Header smallScreen={false}/>
       <ProjectsList>
-        <p>project child</p>
+        <p> first p</p>
+        <p> second p</p>
       </ProjectsList>
     </div>
   );
