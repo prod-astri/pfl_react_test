@@ -1,6 +1,6 @@
-// import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import burger from "../assets/burger.svg"
+import { Link } from 'react-router-dom';
 
 export default function HeaderButtons(props) {
     const { theme, toggleTheme } = props
@@ -12,9 +12,8 @@ export default function HeaderButtons(props) {
             
             {props.isWide ?
                 <div>
-                    <button>btn</button>
-                    <button>btn</button>
-                    <button>btn</button>
+                    <button>{<Link to="/projects"> Projects </Link> }</button>
+                    <button>{<Link to="/"> Home </Link> }</button>
                 </div>
                 :
                 <img src={burger} alt='menu icon' style={{ width: '20px' }} />

@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import Header from './components/Header';
 import ProjectsList from './pages/ProjectsList';
@@ -19,6 +19,9 @@ function App() {
   const handleResize = () => {
     setIsWide(window.innerWidth < 600 ? false : true)
   }
+
+  useEffect(() => { handleResize() }, [])
+
   window.addEventListener("resize", handleResize)
 
   return (
@@ -33,7 +36,7 @@ function App() {
         <Route exact path="/projects" element={<ProjectsList />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
-     
+
     </div>
   );
 }
