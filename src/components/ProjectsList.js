@@ -1,17 +1,17 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 export default function ProjectsList(props) {
     return (
-        <div style={styles.container}>
+        <View style={styles.container}>
             <h2> Projects </h2>
             {props.children}
-        </div>
+        </View>
     )
 }
 
-const styles = {
+const styles = StyleSheet.create({
     container: {
         backgroundColor: "#ffeeee"
       }
-}
+});
