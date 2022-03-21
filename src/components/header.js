@@ -1,12 +1,16 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Header(props) {
     const [counter, setCounter] = useState(0)
 
-    useEffect(()=>{
-        setInterval(() => {
-            setCounter(counter => counter + 1);
-          }, 250);
+    useEffect(() => {
+        // naming it to be able to clear it if I wanted to unmount the component
+        const interval = setInterval(() => {
+            setCounter(counter => counter !== title.length ? counter + 1 : 0);
+        }, 200);
+
+        // clearing on unmount
+        return () => clearInterval(interval);
     }, [])
 
     let title = 'A beatiful title'
@@ -14,7 +18,7 @@ export default function Header(props) {
     return (
         <header>
             <div>
-                <h1>{[...title].filter((e, i)=>i < counter).join('')} </h1>
+                <h1> {[...title].filter((e, i) => i < counter).join('')}_</h1>
                 <h2>experiments</h2>
                 {props.children}
             </div>
