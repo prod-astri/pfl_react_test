@@ -13,15 +13,15 @@ export default function Header(props) {
         return () => clearInterval(interval);
     }, [])
 
-    let title = 'A beatiful title'
+    const title = 'A beatiful title'
 
     return (
         <header>
-            <div>
+            <div id='titleBlock'>
                 <h1> {[...title].filter((e, i) => i < counter).join('')}_</h1>
                 <h2>experiments</h2>
-                {props.children}
             </div>
+                {props.children}
         </header>
     )
 };

@@ -50,7 +50,7 @@ function App() {
 
   // could get the same with @media in css
   const handleResize = () => {
-    setIsWide(window.innerWidth < 600 ? false : true)
+    setIsWide(window.innerWidth < 800 ? false : true)
   }
 
   // check the size at the start
