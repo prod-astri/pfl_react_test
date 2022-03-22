@@ -1,31 +1,36 @@
 :root {
-  --bg-color: rgb(226, 245, 255);
-  --fg-color: rgb(10, 20, 40)
+  --light-color: rgb(226, 245, 255);
+  --dark-color: rgb(10, 20, 40);
+  --highlight-volor: rgb(100, 20, 100);
+}
+a {
+  text-decoration: none;
+}
+
+button,
+input[type='submit'],
+input[type='reset'] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+header button,
+header a, 
+header .navLink{
+  margin: 10px 5px;
+  background-color: var(--light-color);
 }
 
 .App {
   text-align: center;
 }
 
-.dark button{
-  background-color: var(--fg-color);
-  color: var(--bg-color)
-}
-
-.light button {
-  background-color: var(--bg-color);
-  color: var(--fg-color);
-  text-decoration: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-.light a {
-  color: var(--fg-color);
-}
-
-.dark a {
-  color: var(--bg-color)
+header .selected {
+  background-color: var(--highlight-volor);
+  color: var(--light-color);
 }
