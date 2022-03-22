@@ -1,33 +1,31 @@
+:root {
+  --bg-color: rgb(226, 245, 255);
+  --fg-color: rgb(10, 20, 40)
+}
+
 .App {
   text-align: center;
 }
 
 .dark button{
-  background-color: black;
-  color: white
+  background-color: var(--fg-color);
+  color: var(--bg-color)
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.light button {
+  background-color: var(--bg-color);
+  color: var(--fg-color);
+  text-decoration: none;
 }
 
 a {
-  /* applies to <Link/> */
-  color: white
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 2000ms linear;
-  }
+.light a {
+  color: var(--fg-color);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(-20deg);
-  }
-  to {
-    transform: rotate(20deg);
-  }
+.dark a {
+  color: var(--bg-color)
 }

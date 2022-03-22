@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 
 export default function HeaderButtons(props) {
     const { theme, toggleTheme } = props
+    const redirectToAstri = () => {
+        alert('You will open a new page');
+        window.open('https://www.prodastri.com', '_blank');
+
+    }
     return (
         <div>
             <button className={theme} onClick={toggleTheme}>
@@ -14,6 +19,7 @@ export default function HeaderButtons(props) {
                 <div>
                     <button>{<Link to="/projects"> Projects </Link> }</button>
                     <button>{<Link to="/"> Home </Link> }</button>
+                    <button onClick={redirectToAstri}>prodastri</button>
                 </div>
                 :
                 <img src={burger} alt='menu icon' style={{ width: '20px' }} />
