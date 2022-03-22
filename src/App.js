@@ -14,7 +14,10 @@ function App() {
   const [theme, setTheme] = useState('light');
   const [isWide, setIsWide] = useState(false);
 
-  const toggleTheme = e => setTheme(theme === 'light' ? 'dark' : 'light');
+  const toggleTheme = e => {
+    console.log(`Set ${theme} theme`)
+    setTheme(theme === 'light' ? 'dark' : 'light')
+  };
 
   const handleResize = () => {
     setIsWide(window.innerWidth < 600 ? false : true)

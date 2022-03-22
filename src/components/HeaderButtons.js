@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 export default function HeaderButtons(props) {
     const { theme, toggleTheme } = props
     const redirectToAstri = () => {
-        alert('You will open a new page');
+        // eslint-disable-next-line no-restricted-globals
+        confirm('This will open a new page. Proceed?') && 
         window.open('https://www.prodastri.com', '_blank');
 
     }
