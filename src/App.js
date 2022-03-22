@@ -14,21 +14,57 @@ function App() {
   const [theme, setTheme] = useState('light');
   const [isWide, setIsWide] = useState(false);
 
-  const toggleTheme = e => {
-    console.log(`Set ${theme} theme`)
-    setTheme(theme === 'light' ? 'dark' : 'light')
-  };
+  function applyTheme(theme) {
+    console.log(theme)
+    const lightThemeColors = [
+      ["--main-color", "rgb(226, 245, 255)"],
+      ["--second-color", "rgb(10, 20, 40)"],
+      ["--highlight-color", "rgb(100, 20, 100)"]
+    ]
+  
+    const darkThemeColors = [
+      ["--main-color", "rgb(0, 20, 40)"],
+      ["--second-color", "rgb(226, 245, 255)"],
+      ["--highlight-color", "rgb(100, 255, 100)"]
+    ]
+
+    let colorsArray = theme === 'dark' ? darkThemeColors : lightThemeColors 
+
+    for (let [varName, color] of colorsArray) {
+      document.querySelector(":root").style.setProperty(varName, color);
+    }
+  }
+
+  function toggleTheme() {
+    console.log(`Set ${theme} theme`);
+
+    if (theme === 'light') {
+      setTheme('dark');
+      applyTheme(theme);
+    } else if (theme === 'dark') {
+      setTheme('light');
+      applyTheme(theme);
+    }
+
+  }
 
   const handleResize = () => {
     setIsWide(window.innerWidth < 600 ? false : true)
   }
 
-  useEffect(() => { handleResize() }, [])
+  // check the size at the start
+  useEffect(() => {  handleResize()}, [])
+ 
+  useEffect(() => { 
+    applyTheme(theme) 
+}, [theme])
+
+
 
   window.addEventListener("resize", handleResize)
 
   return (
-    <div className={"App " + (theme)}>
+    <div className={"App "}>
       <Header>
         <HeaderButtons isWide={isWide} theme={theme} toggleTheme={toggleTheme} />
       </Header>
@@ -45,6 +81,8 @@ function App() {
 }
 
 export default App;
+
+
 
 // NOTES:
 // - not working from v6:

@@ -1,7 +1,7 @@
 :root {
-  --light-color: rgb(226, 245, 255);
-  --dark-color: rgb(10, 20, 40);
-  --highlight-volor: rgb(100, 20, 100);
+  --main-color: rgb(226, 245, 255);
+  --second-color: rgb(10, 20, 40);
+  --highlight-color: rgb(100, 20, 100);
 }
 a {
   text-decoration: none;
@@ -19,18 +19,27 @@ input[type='reset'] {
   outline: inherit;
 }
 
-header button,
-header a, 
-header .navLink{
+.headerBtn{
   margin: 10px 5px;
-  background-color: var(--light-color);
+  padding: 1rem;
+  background-color: var(--main-color);
+  color: var(--second-color);
+  transition: 200ms;
+}
+
+.headerBtn:hover{
+  color: var(--main-color);
+  background-color: var(--second-color);
 }
 
 .App {
   text-align: center;
 }
 
-header .selected {
-  background-color: var(--highlight-volor);
-  color: var(--light-color);
+header .selected,
+header .selected:hover
+{
+  background-color: var(--highlight-color);
+  color: var(--main-color);
+  transition: 250ms;
 }

@@ -12,20 +12,20 @@ export default function HeaderButtons(props) {
     }
     return (
         <div>
-            <button onClick={toggleTheme}>
+            <button onClick={toggleTheme} className='headerBtn'>
                 {theme === 'dark' ? "set light theme" : "set dark theme"}
             </button>
 
             {props.isWide ?
-                <div>
-                {/* adding the classname and activeclass prop is optional, will default to "navLink" and "selected" */}
-                <ActiveLink path='/' inner='Home' classname={`navLink ${theme}`} activeclass='selected'></ActiveLink>
-                <ActiveLink path='/projects' classname={`navLink ${theme}`} inner='Projects' ></ActiveLink>
-                   
-                    <button onClick={redirectToAstri} className={theme}>prodastri</button>
-                </div>
+                <>
+                    {/* adding the classname and activeclass prop is optional, will default to "navLink" and "selected" */}
+                    <ActiveLink path='/' inner='Home' classname='headerBtn' activeclass='selected'></ActiveLink>
+                    <ActiveLink path='/projects' inner='Projects' classname='headerBtn'></ActiveLink>
+
+                    <button className='headerBtn' onClick={redirectToAstri} >prodastri</button>
+                </>
                 :
-                <img src={burger} alt='menu icon' style={{ width: '20px' }} className={theme}/>
+                <img src={burger} alt='menu icon' style={{ width: '20px' }} />
             }
         </div>)
 }
