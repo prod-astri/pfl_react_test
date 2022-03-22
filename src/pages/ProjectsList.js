@@ -17,6 +17,7 @@ export default function ProjectsList() {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#ffeeee"
+        backgroundColor: "#ffeeee",
+        padding:"5px "
     }
 });

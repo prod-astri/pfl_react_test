@@ -21,14 +21,14 @@ function App() {
       ["--second-color", "rgb(10, 20, 40)"],
       ["--highlight-color", "rgb(100, 20, 100)"]
     ]
-  
+
     const darkThemeColors = [
       ["--main-color", "rgb(0, 20, 40)"],
       ["--second-color", "rgb(226, 245, 255)"],
       ["--highlight-color", "rgb(100, 255, 100)"]
     ]
 
-    let colorsArray = theme === 'dark' ? darkThemeColors : lightThemeColors 
+    let colorsArray = theme === 'dark' ? darkThemeColors : lightThemeColors
 
     for (let [varName, color] of colorsArray) {
       document.querySelector(":root").style.setProperty(varName, color);
@@ -48,27 +48,24 @@ function App() {
 
   }
 
+  // could get the same with @media in css
   const handleResize = () => {
     setIsWide(window.innerWidth < 600 ? false : true)
   }
 
   // check the size at the start
-  useEffect(() => {  handleResize()}, [])
- 
-  useEffect(() => { 
-    applyTheme(theme) 
-}, [theme])
+  useEffect(() => { handleResize() }, [])
 
-
+  useEffect(() => { applyTheme(theme) }, [theme])
 
   window.addEventListener("resize", handleResize)
+
 
   return (
     <div className={"App "}>
       <Header>
         <HeaderButtons isWide={isWide} theme={theme} toggleTheme={toggleTheme} />
       </Header>
-
 
       <Routes>
         <Route exact path="/" element={<HomePage />} />

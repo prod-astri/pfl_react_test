@@ -1,5 +1,5 @@
 import React from 'react'
-import burger from "../assets/burger.svg"
+import {ReactComponent as Burger} from "../assets/burger.svg"
 import ActiveLink from './ActiveLink'
 
 export default function HeaderButtons(props) {
@@ -18,14 +18,14 @@ export default function HeaderButtons(props) {
 
             {props.isWide ?
                 <>
-                    {/* adding the classname and activeclass prop is optional, will default to "navLink" and "selected" */}
-                    <ActiveLink path='/' inner='Home' classname='headerBtn' activeclass='selected'></ActiveLink>
-                    <ActiveLink path='/projects' inner='Projects' classname='headerBtn'></ActiveLink>
-
+                {/* adding the classname and activeclass prop is optional, will default to "navLink" and "selected" */}
+                <ActiveLink path='/' inner='Home' classname='headerBtn' activeclass='selected'></ActiveLink>
+                <ActiveLink path='/projects' inner='Projects' classname='headerBtn'></ActiveLink>
+                   
                     <button className='headerBtn' onClick={redirectToAstri} >prodastri</button>
                 </>
                 :
-                <img src={burger} alt='menu icon' style={{ width: '20px' }} />
+                <Burger />
             }
         </div>)
 }
