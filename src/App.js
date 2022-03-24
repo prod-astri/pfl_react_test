@@ -64,6 +64,11 @@ function App() {
   window.addEventListener("resize", handleResize)
 
 
+  const routes = [
+    {path: '/', element: <HomePage/>, name: 'Home'},
+    {path: '/projects', element: <ProjectsList/>, name: 'Projects'},
+    {path: '/*', element: <ErrorPage/>, name: '404'},
+  ]
   return (
     <div className={"App "}>
       <Header>
@@ -74,9 +79,8 @@ function App() {
       <TransitionGroup component={null}>
         <CSSTransition key={location.key} classNames="page" timeout={300}>
           <Routes location={location}>
-            <Route exact path="/" element={<HomePage />} />
-            <Route exact path="/projects" element={<ProjectsList />} />
-            <Route path='*' element={<ErrorPage />} />
+           {routes.map(({path, element, name}, i) => <Route exact path={path} element={element} key={name + i}/>)} 
+            
           </Routes>
         </CSSTransition>
       </TransitionGroup>
@@ -98,3 +102,6 @@ export default App;
 //     <Route component={ErrorPage} />  
 //   </Switch>
 //   info at https://stackoverflow.com/questions/63124161/attempted-import-error-switch-is-not-exported-from-react-router-dom/69849271#69849271
+
+//   transitionGroup behaves differently:
+//   working example at: https://codesandbox.io/s/6l1li?file=/src/index.tsx:790-821

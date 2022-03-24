@@ -1,6 +1,6 @@
 
 export default function HomePage() {
   return (
-    <p>{'// homepage content //'}</p>
+    <div className="home"><p>{'// homepage content //'}</p></div>
   )
 }

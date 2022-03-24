@@ -5,7 +5,6 @@ import ProjectCard from "../components/ProjectCard";
 
 export default function ProjectsList() {
     const [projects] = useState(projectsData);
-
     return (
         // using View instead of a div already changes the appearence
         <View style={styles.container}>
@@ -18,7 +17,7 @@ export default function ProjectsList() {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: "#ffeeee",
-        color: 'rgb(20, 100, 20)',
+        color: document.querySelector(":root").style.getPropertyValue('--second-color'),
         padding:"5px "
     }
 });
