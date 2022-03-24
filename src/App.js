@@ -13,9 +13,8 @@ function App() {
 
   const [theme, setTheme] = useState('light');
   const [isWide, setIsWide] = useState(false);
-
-  function applyTheme(theme) {
-    console.log(theme)
+  const [dropDown, setDropDown ] = useState(false)
+  function applyTheme(activeTheme) {
     const lightThemeColors = [
       ["--main-color", "rgb(226, 245, 255)"],
       ["--second-color", "rgb(10, 20, 40)"],
@@ -28,7 +27,7 @@ function App() {
       ["--highlight-color", "rgb(100, 255, 100)"]
     ]
 
-    let colorsArray = theme === 'dark' ? darkThemeColors : lightThemeColors
+    let colorsArray = activeTheme === 'dark' ? darkThemeColors : lightThemeColors
 
     for (let [varName, color] of colorsArray) {
       document.querySelector(":root").style.setProperty(varName, color);
@@ -64,7 +63,8 @@ function App() {
   return (
     <div className={"App "}>
       <Header>
-        <HeaderButtons isWide={isWide} theme={theme} toggleTheme={toggleTheme} />
+        <HeaderButtons isWide={isWide} theme={theme} toggleTheme={toggleTheme} {...{dropDown, setDropDown}} >
+        </HeaderButtons>
       </Header>
 
       <Routes>
