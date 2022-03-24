@@ -3,7 +3,7 @@ import { ReactComponent as Burger } from "../assets/burger.svg"
 import ActiveLink from './ActiveLink'
 
 export default function HeaderButtons(props) {
-    const { theme, toggleTheme, dropDown } = props
+    const { isWide, theme, toggleTheme, dropDown, setDropDown } = props
     const redirectToAstri = () => {
         // eslint-disable-next-line no-restricted-globals
         confirm('This will open a new page. Proceed?') &&
@@ -17,9 +17,9 @@ export default function HeaderButtons(props) {
             <ActiveLink path='/' inner='Home' classname={className} activeclass='selected'></ActiveLink>
             <ActiveLink path='/projects' inner='Projects' classname={className}></ActiveLink>
             <button onClick={toggleTheme} className={className}>
-                {theme === 'dark' ? "set light theme" : "set dark theme"}
+                {theme === 'dark' ? "light theme" : "dark theme"}
             </button>
-            <button className={className} onClick={redirectToAstri} >prodastri</button>
+            <button className={className} onClick={redirectToAstri} >prodastri.com</button>
         </>
     }
 
@@ -27,13 +27,13 @@ export default function HeaderButtons(props) {
         <div className='headerButtons'>
 
 
-            {props.isWide ?
+            {isWide ?
                 makeButtons('headerBtn')
                 :
-                <Burger />
+                <Burger onClick={() => setDropDown(!dropDown)}/>
             }
 
-            {dropDown && <div className='dropDown'>
+            {(dropDown && !isWide) && <div className='dropDown'>
                 {makeButtons('dropDownBtn')}
             </div>}
         </div>)

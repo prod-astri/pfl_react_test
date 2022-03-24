@@ -60,11 +60,23 @@ header .selected:hover
 }
 
 .dropDown{
+  min-width: 30%;
   position: absolute;
-  top: 5rem;
-  left: 85%;
+  top: 9rem;
+  left: 70%;
   display: flex;
   flex-direction: column;
+  background-color: var(--main-color);
+  z-index: 2;
+}
+
+.dropDownBtn{
+  margin: var(--small-padding), 0;
+  padding: 1rem;
+  background-color: var(--main-color);
+  color: var(--second-color);
+  transition: 200ms;
+  text-align: left;
 }
 
 svg {
