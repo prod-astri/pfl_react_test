@@ -1,11 +1,12 @@
 import './App.css';
 import { useEffect, useState } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import Header from './components/Header';
 import ProjectsList from './pages/ProjectsList';
 import HeaderButtons from './components/HeaderButtons';
 
-import { Routes, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage';
 import ErrorPage from './pages/ErrorPage';
 
@@ -13,7 +14,10 @@ function App() {
 
   const [theme, setTheme] = useState('light');
   const [isWide, setIsWide] = useState(false);
-  const [dropDown, setDropDown ] = useState(false)
+  const [dropDown, setDropDown] = useState(false)
+  
+  const location = useLocation();
+
   function applyTheme(activeTheme) {
     const lightThemeColors = [
       ["--main-color", "rgb(226, 245, 255)"],
@@ -63,15 +67,20 @@ function App() {
   return (
     <div className={"App "}>
       <Header>
-        <HeaderButtons isWide={isWide} theme={theme} toggleTheme={toggleTheme} {...{dropDown, setDropDown}} >
+        <HeaderButtons isWide={isWide} theme={theme} toggleTheme={toggleTheme} {...{ dropDown, setDropDown }} >
         </HeaderButtons>
       </Header>
 
-      <Routes>
-        <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/projects" element={<ProjectsList />} />
-        <Route path='*' element={<ErrorPage />} />
-      </Routes>
+      <TransitionGroup component={null}>
+        <CSSTransition key={location.key} classNames="page" timeout={300}>
+          <Routes location={location}>
+            <Route exact path="/" element={<HomePage />} />
+            <Route exact path="/projects" element={<ProjectsList />} />
+            <Route path='*' element={<ErrorPage />} />
+          </Routes>
+        </CSSTransition>
+      </TransitionGroup>
+
 
     </div>
   );
